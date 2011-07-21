@@ -19,6 +19,8 @@
  *
  * - Joe Walnes, 2011 http://joewalnes.com/
  *   https://github.com/joewalnes/jquery-simple-context-menu
+ *
+ * MIT License: https://github.com/joewalnes/jquery-simple-context-menu/blob/master/LICENSE.txt
  */
 jQuery.fn.contextPopup = function(menuData) {
 
