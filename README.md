@@ -11,8 +11,6 @@ Demo
 
 * http://joewalnes.github.com/jquery-simple-context-menu/example.html
 
-![Screenshot](https://github.com/joewalnes/jquery-simple-context-menu/raw/master/demo/screenshot.png)
-
 Features
 --------
 
@@ -21,6 +19,11 @@ Features
 * Looks good out of the box, with no additional tweaking.
 * Designed to look and behave like a standard Windows context menu.
 * There's so little code, it should be easy to add your own custom features.
+
+The menu looks like this:
+
+![Screenshot](https://github.com/joewalnes/jquery-simple-context-menu/raw/master/demo/screenshot.png)
+
 
 Installation
 ------------
