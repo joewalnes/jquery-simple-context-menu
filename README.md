@@ -1,5 +1,5 @@
-Yet Another jQuery Context Menu Plugin
-======================================
+A Simple Good Looking Context Menu, for jQuery
+==============================================
 
 Yes, there are [loads](http://plugins.jquery.com/plugin-tags/context-menu) of context menu
 plugins already. But they require a fair amount of work to make them look good.
@@ -31,6 +31,7 @@ Include the files `jquery.contextmenu.css` and `jquery.contextmenu.js` in your p
          ... rest of your stuff ...
 
 You can get the files from here:
+
 * <https://github.com/joewalnes/jquery-simple-context-menu/raw/master/jquery.contextmenu.js>
 * <https://github.com/joewalnes/jquery-simple-context-menu/raw/master/jquery.contextmenu.css>
 
@@ -61,4 +62,5 @@ The icons should be 16x16 pixels. I recommend the [Fugue icon set](http://p.yusu
 
 
 kthxbye
+
 -[joe](http://joewalnes.com)
