@@ -61,7 +61,7 @@ You can wire up a context menu like this:
         {label:'Another Thing', icon:'icons/receipt-text.png',    action:function() { alert('clicked 2') } },
         null, /* null can be used to add a separator to the menu items */
         {label:'Blah Blah',     icon:'icons/book-open-list.png',  action:function() { alert('clicked 3') } },
-      });
+      ]);
 
 Icons
 -----
