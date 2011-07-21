@@ -6,6 +6,11 @@ plugins already. But they require a fair amount of work to make them look good.
 
 This one is easy to use, small, and looks good.
 
+Demo
+----
+
+* http://joewalnes.github.com/jquery-simple-context-menu/example.html
+
 ![Screenshot](https://github.com/joewalnes/jquery-simple-context-menu/raw/master/demo/screenshot.png)
 
 Features
