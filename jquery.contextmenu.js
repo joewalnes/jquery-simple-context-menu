@@ -23,15 +23,27 @@
  * MIT License: https://github.com/joewalnes/jquery-simple-context-menu/blob/master/LICENSE.txt
  */
 jQuery.fn.contextPopup = function(menuData) {
+	// Define default settings
+	var settings = {
+		contextMenuClass: 'contextMenuPlugin',
+		gutterLineClass: 'gutterLine',
+		headerClass: 'header',
+		seperatorClass: 'divider',
+		title: '',
+		items: []
+	};
+	
+	// merge them
+	$.extend(settings, menuData);
 
   // Build popup menu HTML
   function createMenu() {
-    var menu = $('<ul class=contextMenuPlugin><div class=gutterLine></div></ul>')
+    var menu = $('<ul class="' + settings.contextMenuClass + '"><div class="' + settings.gutterLineClass + '"></div></ul>')
       .appendTo(document.body);
-    if (menuData.title) {
-      $('<li class=header></li>').text(menuData.title).appendTo(menu);
+    if (settings.title) {
+      $('<li class="' + settings.headerClass + '"></li>').text(settings.title).appendTo(menu);
     }
-    menuData.items.forEach(function(item) {
+    settings.items.forEach(function(item) {
       if (item) {
         var row = $('<li><a href="#"><img><span></span></a></li>').appendTo(menu);
         row.find('img').attr('src', item.icon);
@@ -40,10 +52,10 @@ jQuery.fn.contextPopup = function(menuData) {
           row.find('a').click(item.action);
         }
       } else {
-        $('<li class=divider></li>').appendTo(menu);
+        $('<li class="' + settings.seperatorClass + '"></li>').appendTo(menu);
       }
     });
-    menu.find('.header').text(menuData.title);
+    menu.find('.' + settings.headerClass ).text(settings.title);
     return menu;
   }
 
