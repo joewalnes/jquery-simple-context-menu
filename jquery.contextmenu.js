@@ -37,7 +37,7 @@ jQuery.fn.contextPopup = function(menuData) {
 	$.extend(settings, menuData);
 
   // Build popup menu HTML
-  function createMenu() {
+  function createMenu(e) {
     var menu = $('<ul class="' + settings.contextMenuClass + '"><div class="' + settings.gutterLineClass + '"></div></ul>')
       .appendTo(document.body);
     if (settings.title) {
@@ -57,7 +57,7 @@ jQuery.fn.contextPopup = function(menuData) {
         }
         row.find('span').text(item.label);
         if (item.action) {
-          row.find('a').click(item.action);
+          row.find('a').click(function(){ item.action(e); });
         }
       } else {
         $('<li class="' + settings.seperatorClass + '"></li>').appendTo(menu);
@@ -71,7 +71,7 @@ jQuery.fn.contextPopup = function(menuData) {
   this.bind('contextmenu', function(e) {
 
     // Create and show menu
-    var menu = createMenu()
+    var menu = createMenu(e)
       .show()
       .css({zIndex:1000001, left:e.pageX + 5 /* nudge to the right, so the pointer is covering the title */, top:e.pageY})
       .bind('contextmenu', function() { return false; });
