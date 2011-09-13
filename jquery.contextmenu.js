@@ -45,8 +45,16 @@ jQuery.fn.contextPopup = function(menuData) {
     }
     settings.items.forEach(function(item) {
       if (item) {
-        var row = $('<li><a href="#"><img><span></span></a></li>').appendTo(menu);
-        row.find('img').attr('src', item.icon);
+        var rowCode = '<li><a href="#"><span></span></a></li>';
+        // if(item.icon)
+        //   rowCode += '<img>';
+        // rowCode +=  '<span></span></a></li>';
+        var row = $(rowCode).appendTo(menu);
+        if(item.icon){
+          var icon = $('<img>');
+          icon.attr('src', item.icon);
+          icon.insertBefore(row.find('span'));
+        }
         row.find('span').text(item.label);
         if (item.action) {
           row.find('a').click(item.action);
