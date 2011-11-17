@@ -68,12 +68,21 @@ jQuery.fn.contextPopup = function(menuData) {
   }
 
   // On contextmenu event (right click)
-  this.bind('contextmenu', function(e) {
+  this.bind('contextmenu', function(e) {	
+    var menu = createMenu(e)
+      .show();
+    
+    var left = e.pageX + 5, /* nudge to the right, so the pointer is covering the title */
+        top = e.pageY;
+    if (top + menu.height() >= $(window).height()) {
+        top -= menu.height();
+    }
+    if (left + menu.width() >= $(window).width()) {
+        left -= menu.width();
+    }
 
     // Create and show menu
-    var menu = createMenu(e)
-      .show()
-      .css({zIndex:1000001, left:e.pageX + 5 /* nudge to the right, so the pointer is covering the title */, top:e.pageY})
+    menu.css({zIndex:1000001, left:left, top:top})
       .bind('contextmenu', function() { return false; });
 
     // Cover rest of page with invisible div that when clicked will cancel the popup.
