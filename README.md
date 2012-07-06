@@ -33,7 +33,7 @@ Include the files `jquery.contextmenu.css` and `jquery.contextmenu.js` in your p
     <!DOCTYPE html>
     <html>
       <head>
-         <script src="jquery-1.6.2.min.js"></script> 
+         <script src="jquery-1.7.2.min.js"></script> 
          <script src="jquery.contextmenu.js"></script> 
          <link rel="stylesheet" href="jquery.contextmenu.css">
          ... rest of your stuff ...
