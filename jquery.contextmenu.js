@@ -44,7 +44,7 @@ jQuery.fn.contextPopup = function(menuData) {
     if (settings.title) {
       $('<li class="' + settings.headerClass + '"></li>').text(settings.title).appendTo(menu);
     }
-    settings.items.forEach(function(item) {
+    jQuery.each(settings.items, function(i, item) {
       if (item) {
         var rowCode = '<li><a href="#"><span></span></a></li>';
         // if(item.icon)
