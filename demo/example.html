@@ -21,13 +21,28 @@
             {label:'Flutters',      icon:'icons/cassette.png',                    action:function() { alert('clicked 8') } }
           ]
         });
+        
+        var id = 1;
+        $('#mythingy2').contextPopup({
+          title: 'My Popup Menu',
+          liveSelector: 'div',
+          items: [
+            {label:'Entry1',     icon:'icons/shopping-basket.png',             action:function() { $('#mythingy2').prepend('<div>Element '+(++id)+'</div>') } },
+            {label:'Entry2', 	 icon:'icons/receipt-text.png',                action:function() { alert('clicked 2') } }
+          ]
+        });
       });
     </script>
   </head>
   <body style="background-color:#000000; color:#ffffff; font-family:arial,sans-serif">
 
-    <div id="mythingy" style="width:500px; height: 500px; margin: 10px; border:2px dashed #666666; padding:6px">
+    <div id="mythingy" style="width:500px; height: 200px; margin: 10px; border:2px dashed #666666; padding:6px">
       right click in this box to show custom context menu 
+    </div>
+    
+    <div id="mythingy2" style="width:500px; height: 200px; margin: 10px; border:2px dashed #666666; padding:6px; overflow: auto">
+    	<div>Element 1</div>
+      right click the elements in here to add new ones; notice that you can click on the added elements too and a context menu appears
     </div>
 
     right click out of the box to show the standard browser menu (if you're trying to view-source, right click here)
