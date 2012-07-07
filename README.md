@@ -33,7 +33,7 @@ Include the files `jquery.contextmenu.css` and `jquery.contextmenu.js` in your p
     <!DOCTYPE html>
     <html>
       <head>
-         <script src="jquery-1.6.2.min.js"></script> 
+         <script src="jquery-1.7.2.min.js"></script> 
          <script src="jquery.contextmenu.js"></script> 
          <link rel="stylesheet" href="jquery.contextmenu.css">
          ... rest of your stuff ...
@@ -62,6 +62,23 @@ You can wire up a context menu like this:
         null, /* null can be used to add a separator to the menu items */
         {label:'Blah Blah',     icon:'icons/book-open-list.png',  action:function() { alert('clicked 3') } },
       ]});
+
+If you add elements to your DOM dynamically you can use the liveSelector property in the settings object like this:
+
+    <div id="mythingy">
+        <div class="hasMenu">Menu 1</div>
+        <div>No-Menu 2</div>
+    </div>
+
+    $('#mythingy').contextPopup({
+      title: 'My Popup Menu',
+      liveSelector: '.hasMenu',
+      items: [
+        {label:'Some Item',     icon:'icons/shopping-basket.png', action:function() { alert('clicked 1') } },
+        {label:'Another Thing', icon:'icons/receipt-text.png',    action:function() { alert('clicked 2') } }
+      ]});
+
+If you then add more elements to #mythingy which have a hasMenu class they will react to a rightclick too, while the other elements will not.
 
 Icons
 -----

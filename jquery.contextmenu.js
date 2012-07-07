@@ -30,7 +30,8 @@ jQuery.fn.contextPopup = function(menuData) {
 		headerClass: 'header',
 		seperatorClass: 'divider',
 		title: '',
-		items: []
+		items: [],
+		liveSelector: null
 	};
 	
 	// merge them
@@ -43,7 +44,7 @@ jQuery.fn.contextPopup = function(menuData) {
     if (settings.title) {
       $('<li class="' + settings.headerClass + '"></li>').text(settings.title).appendTo(menu);
     }
-    settings.items.forEach(function(item) {
+    jQuery.each(settings.items, function(i, item) {
       if (item) {
         var rowCode = '<li><a href="#"><span></span></a></li>';
         // if(item.icon)
@@ -66,9 +67,8 @@ jQuery.fn.contextPopup = function(menuData) {
     menu.find('.' + settings.headerClass ).text(settings.title);
     return menu;
   }
-
-  // On contextmenu event (right click)
-  this.bind('contextmenu', function(e) {	
+  
+  function contextMenuHandler(e) {	
     var menu = createMenu(e)
       .show();
     
@@ -104,7 +104,13 @@ jQuery.fn.contextPopup = function(menuData) {
 
     // Cancel event, so real browser popup doesn't appear.
     return false;
-  });
+  }
+
+  if (settings.liveSelector) {
+  	this.on('contextmenu', settings.liveSelector, contextMenuHandler);
+  } else {
+    this.on('contextmenu', contextMenuHandler);
+  }
 
   return this;
 };
