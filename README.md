@@ -66,19 +66,19 @@ You can wire up a context menu like this:
 If you add elements to your DOM dynamically you can use the liveSelector property in the settings object like this:
 
     <div id="mythingy">
-        <div>Menu 1</div>
-        <div>Menu 2</div>
+        <div class="hasMenu">Menu 1</div>
+        <div>No-Menu 2</div>
     </div>
 
     $('#mythingy').contextPopup({
       title: 'My Popup Menu',
-      liveSelector: 'div',
+      liveSelector: '.hasMenu',
       items: [
         {label:'Some Item',     icon:'icons/shopping-basket.png', action:function() { alert('clicked 1') } },
         {label:'Another Thing', icon:'icons/receipt-text.png',    action:function() { alert('clicked 2') } }
       ]});
 
-If you then add more elements to #mythingy they will react to a rightclick too.
+If you then add more elements to #mythingy which have a hasMenu class they will react to a rightclick too, while the other elements will not.
 
 Icons
 -----
