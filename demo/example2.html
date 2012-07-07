@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="../jquery.contextmenu.js"></script>
+    <link rel="stylesheet" href="../jquery.contextmenu.css">
+    <script>
+      $(function() {
+        
+        var id = 1;
+        $('#mythingy').contextPopup({
+          title: 'My Popup Menu',
+          liveSelector: 'div',
+          items: [
+            {label:'Entry1',     icon:'icons/shopping-basket.png',             action:function() { $('#mythingy').prepend('<div>Element '+(++id)+'</div>') } },
+            {label:'Entry2', 	 icon:'icons/receipt-text.png',                action:function() { alert('clicked 2') } }
+          ]
+        });
+      });
+    </script>
+  </head>
+  <body style="background-color:#000000; color:#ffffff; font-family:arial,sans-serif">
+    
+    <div id="mythingy" style="width:500px; height: 500px; margin: 10px; border:2px dashed #666666; padding:6px; overflow: auto">
+    	<div>Element 1</div>
+    </div>
+	
+	notice that in comparsion to example.html in this demo only the elements in the box have a contextmenu while the box itself has none and<br>
+	the added elements have a context menu without executing contextPopup on every element.<br>
+    right click out of the box to show the standard browser menu (if you're trying to view-source, right click here)
+  </body>
+</html>
