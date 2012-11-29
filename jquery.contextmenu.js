@@ -94,23 +94,23 @@ jQuery.fn.contextPopup = function (menuData) {
 			.css({ left: 0, top: 0, width: '100%', height: '100%', position: 'absolute', zIndex: 1000000 })
 			.appendTo(document.body)
 			.on('contextmenu click', function () {
-		// If click or right click anywhere else on page: remove clean up.
-		bg.remove();
-		menu.remove();
-		$elem.removeClass(settings.contextMenuClass + '-highlight');
-		return false;
-	});
-
+				// If click or right click anywhere else on page: remove clean up.
+				bg.remove();
+				menu.remove();
+				$elem.removeClass(settings.contextMenuClass + '-highlight');
+				return false;
+			});
+			
 		// When clicking on a link in menu: clean up (in addition to handlers on link already)
 		menu.find('a').click(function () {
 			bg.remove();
 			menu.remove();
 			$elem.removeClass(settings.contextMenuClass + '-highlight');
 		});
-
+		
 		// Cancel event, so real browser popup doesn't appear.
 		return false;
 	});
-
+	
 	return this;
 };
