@@ -69,7 +69,7 @@ jQuery.fn.contextPopup = function (menuData) {
 	}
 
 	// On contextmenu event (right click)
-	this.on('contextmenu.contextmenu', function (e) {
+	this.on('contextmenu.contextMenuPlugin', function (e) {
 		var $elem	= $(this);
 
 		$elem.toggleClass(settings.contextMenuClass + '-highlight', true && settings.highlight);
@@ -87,7 +87,7 @@ jQuery.fn.contextPopup = function (menuData) {
 
 		// Create and show menu
 		menu.css({ zIndex: 1000001, left: left, top: top })
-			.on('contextmenu.contextmenu', function () { return false; });
+			.on('contextmenu.contextMenuPlugin', function () { return false; });
 
 		// Cover rest of page with invisible div that when clicked will cancel the popup.
 		var bg = $('<div></div>')
