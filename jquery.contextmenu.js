@@ -84,7 +84,7 @@ jQuery.fn.contextPopup = function(menuData) {
 
     // Create and show menu
     menu.css({zIndex:1000001, left:left, top:top})
-      .bind(settings.menuTrigger, function() { return false; });
+      .bind('contextmenu click', function() { return false; });
 
     // Cover rest of page with invisible div that when clicked will cancel the popup.
     var bg = $('<div></div>')
