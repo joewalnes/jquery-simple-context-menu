@@ -30,7 +30,8 @@ jQuery.fn.contextPopup = function(menuData) {
 		headerClass: 'header',
 		seperatorClass: 'divider',
 		title: '',
-		items: []
+		items: [],
+    menuTrigger: 'contextmenu'
 	};
 	
 	// merge them
@@ -68,7 +69,7 @@ jQuery.fn.contextPopup = function(menuData) {
   }
 
   // On contextmenu event (right click)
-  this.bind('contextmenu', function(e) {	
+  this.bind(settings.menuTrigger, function(e) {	
     var menu = createMenu(e)
       .show();
     
@@ -83,7 +84,7 @@ jQuery.fn.contextPopup = function(menuData) {
 
     // Create and show menu
     menu.css({zIndex:1000001, left:left, top:top})
-      .bind('contextmenu', function() { return false; });
+      .bind(settings.menuTrigger, function() { return false; });
 
     // Cover rest of page with invisible div that when clicked will cancel the popup.
     var bg = $('<div></div>')
