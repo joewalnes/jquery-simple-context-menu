@@ -23,18 +23,19 @@
  * MIT License: https://github.com/joewalnes/jquery-simple-context-menu/blob/master/LICENSE.txt
  */
 jQuery.fn.contextPopup = function(menuData) {
-	// Define default settings
-	var settings = {
-		contextMenuClass: 'contextMenuPlugin',
-		gutterLineClass: 'gutterLine',
-		headerClass: 'header',
-		seperatorClass: 'divider',
-		title: '',
-		items: []
-	};
-	
-	// merge them
-	$.extend(settings, menuData);
+  // Define default settings
+  var settings = {
+    contextMenuClass: 'contextMenuPlugin',
+    gutterLineClass: 'gutterLine',
+    headerClass: 'header',
+    seperatorClass: 'divider',
+    title: '',
+    items: [],
+    menuTrigger: 'contextmenu'
+  };
+  
+  // merge them
+  $.extend(settings, menuData);
 
   // Build popup menu HTML
   function createMenu(e) {
@@ -67,10 +68,26 @@ jQuery.fn.contextPopup = function(menuData) {
     return menu;
   }
 
+  var menu;
+
+  $(document).bind('click contextmenu' , function(e){
+    try { 
+      menu.remove();
+    } catch(e) {
+      // Context Menu hasn't been created yet :(
+    }
+  });
+
   // On contextmenu event (right click)
-  this.bind('contextmenu', function(e) {	
-    var menu = createMenu(e)
-      .show();
+  this.bind(settings.menuTrigger, function(e) { 
+
+    try { 
+      menu.remove();
+    } catch(e) {
+      // Context Menu hasn't been created yet :(
+    }
+
+    menu = createMenu(e).show();
     
     var left = e.pageX + 5, /* nudge to the right, so the pointer is covering the title */
         top = e.pageY;
@@ -83,8 +100,9 @@ jQuery.fn.contextPopup = function(menuData) {
 
     // Create and show menu
     menu.css({zIndex:1000001, left:left, top:top})
-      .bind('contextmenu', function() { return false; });
+      .bind('contextmenu click', function() { return false; });
 
+    /**
     // Cover rest of page with invisible div that when clicked will cancel the popup.
     var bg = $('<div></div>')
       .css({left:0, top:0, width:'100%', height:'100%', position:'absolute', zIndex:1000000})
@@ -95,10 +113,11 @@ jQuery.fn.contextPopup = function(menuData) {
         menu.remove();
         return false;
       });
+    **/
 
     // When clicking on a link in menu: clean up (in addition to handlers on link already)
     menu.find('a').click(function() {
-      bg.remove();
+      // bg.remove();
       menu.remove();
     });
 
