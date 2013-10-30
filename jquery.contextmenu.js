@@ -57,7 +57,7 @@ jQuery.fn.contextPopup = function(menuData) {
         }
         row.find('span').text(item.label);
         if (item.action) {
-          row.find('a').click(function(){ item.action(e); });
+          row.find('a').click(function(){ item.action(e); return false; });
         }
       } else {
         $('<li class="' + settings.seperatorClass + '"></li>').appendTo(menu);
@@ -69,6 +69,10 @@ jQuery.fn.contextPopup = function(menuData) {
 
   // On contextmenu event (right click)
   this.bind('contextmenu', function(e) {	
+    if ( settings.beforeOpen ) {
+      settings.beforeOpen(e);
+    }
+
     var menu = createMenu(e)
       .show();
     
