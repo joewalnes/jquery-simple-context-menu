@@ -69,6 +69,10 @@ jQuery.fn.contextPopup = function(menuData) {
 
   // On contextmenu event (right click)
   this.bind('contextmenu', function(e) {	
+    if ( settings.beforeOpen ) {
+      settings.beforeOpen(e);
+    }
+
     var menu = createMenu(e)
       .show();
     
