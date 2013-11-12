@@ -52,6 +52,19 @@
   cursor: default;
 }
 
+.contextMenuPlugin > li.disabled {
+  pointer-events: none;
+}
+
+.contextMenuPlugin > li.disabled a {
+  color: grey;
+}
+
+.contextMenuPlugin > li.disabled > a:hover {
+  border: none;
+  outline: none;
+}
+
 .contextMenuPlugin > li.divider {
   border-top: 1px solid #e7e3e7;
   border-bottom: 1px solid #ffffff;

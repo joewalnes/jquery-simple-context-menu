@@ -56,6 +56,13 @@ jQuery.fn.contextPopup = function(menuData) {
           icon.insertBefore(row.find('span'));
         }
         row.find('span').text(item.label);
+          
+        if (item.isEnabled != undefined && !item.isEnabled()) {
+            row.addClass('disabled');
+        } else if (item.action) {
+            row.find('a').click(function () { item.action(e); });
+        }
+          
         if (item.action) {
           row.find('a').click(function(){ item.action(e); });
         }
