@@ -56,7 +56,7 @@ You can wire up a context menu like this:
 
     $('#mythingy').contextPopup({
       title: 'My Popup Menu',
-      beforeOpen : function(event) { alert(e); },
+      beforeOpen : function(event) { alert(event); },
       items: [
         {label:'Some Item',     icon:'icons/shopping-basket.png', action:function() { alert('clicked 1') } },
         {label:'Another Thing', icon:'icons/receipt-text.png',    action:function() { alert('clicked 2') } },
