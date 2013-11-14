@@ -7,11 +7,12 @@
  *
  *   $('.something').contextPopup({
  *     title: 'Some title',
+*      beforeOpen : some_callback,
  *     items: [
  *       {label:'My Item', icon:'/some/icon1.png', action:function() { alert('hi'); }},
  *       {label:'Item #2', icon:'/some/icon2.png', action:function() { alert('yo'); }},
  *       null, // divider
- *       {label:'Blahhhh', icon:'/some/icon3.png', action:function() { alert('bye'); }},
+ *       {label:'Blahhhh', icon:'/some/icon3.png', action:function() { alert('bye'); }}
  *     ]
  *   });
  *
