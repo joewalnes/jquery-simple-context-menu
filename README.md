@@ -56,7 +56,7 @@ You can wire up a context menu like this:
 
     $('#mythingy').contextPopup({
       title: 'My Popup Menu',
-      beforeOpen : some_callback,
+      beforeOpen : function(event) { alert(e); },
       items: [
         {label:'Some Item',     icon:'icons/shopping-basket.png', action:function() { alert('clicked 1') } },
         {label:'Another Thing', icon:'icons/receipt-text.png',    action:function() { alert('clicked 2') } },
@@ -65,7 +65,7 @@ You can wire up a context menu like this:
       ]});
 
 The beforeOpen argument is optional: it's useful to pass a callback to do thing before the menu is
-shown, i.e. highlight the appropriate row in a table.
+shown, i.e. highlight the appropriate row in a table. The event object is passed to the callback.
 
 Icons
 -----
