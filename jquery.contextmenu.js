@@ -11,7 +11,7 @@
  *       {label:'My Item', icon:'/some/icon1.png', action:function() { alert('hi'); }},
  *       {label:'Item #2', icon:'/some/icon2.png', action:function() { alert('yo'); }},
  *       null, // divider
- *       {label:'Blahhhh', icon:'/some/icon3.png', action:function() { alert('bye'); }},
+ *       {label:'Blahhhh', icon:'/some/icon3.png', action:function() { alert('bye'); }, isEnabled: function() { return false; }},
  *     ]
  *   });
  *
