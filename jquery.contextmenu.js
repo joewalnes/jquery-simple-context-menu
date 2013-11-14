@@ -7,11 +7,12 @@
  *
  *   $('.something').contextPopup({
  *     title: 'Some title',
+ *     beforeOpen : function(event) { alert(event); },
  *     items: [
  *       {label:'My Item', icon:'/some/icon1.png', action:function() { alert('hi'); }},
  *       {label:'Item #2', icon:'/some/icon2.png', action:function() { alert('yo'); }},
  *       null, // divider
- *       {label:'Blahhhh', icon:'/some/icon3.png', action:function() { alert('bye'); }},
+ *       {label:'Blahhhh', icon:'/some/icon3.png', action:function() { alert('bye'); }}
  *     ]
  *   });
  *
@@ -69,6 +70,10 @@ jQuery.fn.contextPopup = function(menuData) {
 
   // On contextmenu event (right click)
   this.bind('contextmenu', function(e) {	
+    if ( settings.beforeOpen ) {
+      settings.beforeOpen(e);
+    }
+
     var menu = createMenu(e)
       .show();
     

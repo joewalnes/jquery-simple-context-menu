@@ -56,12 +56,16 @@ You can wire up a context menu like this:
 
     $('#mythingy').contextPopup({
       title: 'My Popup Menu',
+      beforeOpen : function(event) { alert(event); },
       items: [
         {label:'Some Item',     icon:'icons/shopping-basket.png', action:function() { alert('clicked 1') } },
         {label:'Another Thing', icon:'icons/receipt-text.png',    action:function() { alert('clicked 2') } },
         null, /* null can be used to add a separator to the menu items */
-        {label:'Blah Blah',     icon:'icons/book-open-list.png',  action:function() { alert('clicked 3') } },
+        {label:'Blah Blah',     icon:'icons/book-open-list.png',  action:function() { alert('clicked 3') } }
       ]});
+
+The beforeOpen argument is optional: it's useful to pass a callback to do thing before the menu is
+shown, i.e. highlight the appropriate row in a table. The event object is passed to the callback.
 
 Icons
 -----
