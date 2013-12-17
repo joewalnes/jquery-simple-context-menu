@@ -74,3 +74,7 @@ The icons should be 16x16 pixels. I recommend the [Fugue icon set](http://p.yusu
 kthxbye
 
 -[joe](http://joewalnes.com)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/joewalnes/jquery-simple-context-menu/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
