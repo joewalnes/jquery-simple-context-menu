@@ -62,10 +62,7 @@ jQuery.fn.contextPopup = function(menuData) {
         } else if (item.action) {
             row.find('a').click(function () { item.action(e); });
         }
-          
-        if (item.action) {
-          row.find('a').click(function(){ item.action(e); });
-        }
+
       } else {
         $('<li class="' + settings.seperatorClass + '"></li>').appendTo(menu);
       }
