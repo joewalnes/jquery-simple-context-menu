@@ -22,7 +22,7 @@
   background-repeat: no-repeat;
 }
 
-.contextMenuPlugin > li > a {
+.contextMenuPlugin > li > .linkClicker {
   position: relative;
   display: block;
   padding: 3px 3px 3px 28px;
@@ -31,14 +31,14 @@
   margin: 1px;
 }
 
-.contextMenuPlugin > li > a img {
+.contextMenuPlugin > li > .linkClicker img {
   position: absolute;
   left: 3px;
   margin-top: -2px;
   width: 16px;
   height: 16px;
 }
-.contextMenuPlugin > li > a:hover {
+.contextMenuPlugin > li > .linkClicker:hover {
   border: 1px solid #fffbff;
   outline: 1px solid #b5d3ff;
   margin: 0;
@@ -56,11 +56,11 @@
   pointer-events: none;
 }
 
-.contextMenuPlugin > li.disabled a {
+.contextMenuPlugin > li.disabled .linkClicker {
   color: grey;
 }
 
-.contextMenuPlugin > li.disabled > a:hover {
+.contextMenuPlugin > li.disabled > .linkClicker:hover {
   border: none;
   outline: none;
 }
