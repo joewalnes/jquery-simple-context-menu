@@ -33,7 +33,7 @@ Include the files `jquery.contextmenu.css` and `jquery.contextmenu.js` in your p
     <!DOCTYPE html>
     <html>
       <head>
-         <script src="jquery-1.6.2.min.js"></script> 
+         <script src="[some Path To Modern jQuery]"></script>
          <script src="jquery.contextmenu.js"></script> 
          <link rel="stylesheet" href="jquery.contextmenu.css">
          ... rest of your stuff ...
@@ -61,7 +61,13 @@ You can wire up a context menu like this:
         {label:'Another Thing', icon:'icons/receipt-text.png',    action:function() { alert('clicked 2') } },
         null, /* null can be used to add a separator to the menu items */
         {label:'Blah Blah',     icon:'icons/book-open-list.png',  action:function() { alert('clicked 3') }, isEnabled:function() { return false; } },
-      ]});
+      ],
+      dataTokenLookups: [
+        'name-of-data-attribute-to-retrieve-from-bound-element-and-placed-on-items[0]',
+        'name-of-data-attribute-to-retrieve-from-bound-element-and-placed-on-items[1]',
+        'name-of-data-attribute-to-retrieve-from-bound-element-and-placed-on-items[2]',
+        ]
+      });
 
 The 'isEnabled' function is optional.  By default all items are enabled.
 
@@ -71,10 +77,17 @@ Icons
 The icons should be 16x16 pixels. I recommend the [Fugue icon set](http://p.yusukekamiyamane.com/) (shadowless).
 
 
-kthxbye
 
--[joe](http://joewalnes.com)
+CHANGES FROM ORIGINAL
+-----------------------
 
+- can now specify the tag type that the clickable context-menu element should be.
+Defaults to <span> instead of <a>, since clicks don't necessarily take someone to a new resource/URI
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/joewalnes/jquery-simple-context-menu/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+- class 'linkClicker' given to that clickable element, which allows for more accurate styling
+ as well as DOM node traversal when building the menu (no need to rely on specific tags in a specific order; classes are more flexible)
 
+- ability to take "data-" attributes from the original target / the element the context-menu is bound to
+ and have it associated with the clickable context-menu element
+
+- update jQuery methods / replaced .bind() with .on()
