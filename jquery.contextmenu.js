@@ -26,6 +26,7 @@ jQuery.fn.contextPopup = function(menuData) {
 	// Define default settings
 	var settings = {
 		contextMenuClass: 'contextMenuPlugin',
+        linkClickerClass: 'contextMenuLink',
 		gutterLineClass: 'gutterLine',
 		headerClass: 'header',
 		seperatorClass: 'divider',
@@ -45,7 +46,7 @@ jQuery.fn.contextPopup = function(menuData) {
     }
     settings.items.forEach(function(item) {
       if (item) {
-        var rowCode = '<li><a href="#"><span></span></a></li>';
+        var rowCode = '<li><a href="#" class="'+settings.linkClickerClass+'"><span class="itemTitle"></span></a></li>';
         // if(item.icon)
         //   rowCode += '<img>';
         // rowCode +=  '<span></span></a></li>';
@@ -53,14 +54,14 @@ jQuery.fn.contextPopup = function(menuData) {
         if(item.icon){
           var icon = $('<img>');
           icon.attr('src', item.icon);
-          icon.insertBefore(row.find('span'));
+          icon.insertBefore(row.find('.itemTitle'));
         }
-        row.find('span').text(item.label);
+        row.find('.itemTitle').text(item.label);
           
         if (item.isEnabled != undefined && !item.isEnabled()) {
             row.addClass('disabled');
         } else if (item.action) {
-            row.find('a').click(function () { item.action(e); });
+            row.find('.'+settings.linkClickerClass).click(function () { item.action(e); });
         }
 
       } else {
