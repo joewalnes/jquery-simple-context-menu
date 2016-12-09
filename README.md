@@ -1,4 +1,4 @@
-Prova Substitutiva
+Prova Final
 ==============================================
 
 A prova vale dez pontos. Para que seja avaliada, você precisa cumprir os seguintes requisitos:
