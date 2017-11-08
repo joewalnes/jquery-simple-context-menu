@@ -52,8 +52,9 @@ jQuery.fn.contextPopup = function(menuData) {
         // rowCode +=  '<span></span></a></li>';
         var row = $(rowCode).appendTo(menu);
         if(item.icon){
-          var icon = $('<img>');
-          icon.attr('src', item.icon);
+          //var icon = $('<img>');
+          //icon.attr('src', item.icon);
+	  var icon = $(item.icon);	
           icon.insertBefore(row.find('.itemTitle'));
         }
         row.find('.itemTitle').text(item.label);
