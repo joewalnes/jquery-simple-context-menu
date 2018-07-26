@@ -12,6 +12,7 @@
  *       {label:'Item #2', icon:'/some/icon2.png', action:function() { alert('yo'); }},
  *       null, // divider
  *       {label:'Blahhhh', icon:'/some/icon3.png', action:function() { alert('bye'); }, isEnabled: function() { return false; }},
+ *       {label:'Another Item', icon:'/some/icon4.png', action:function() { alert('hello'); }, isActive: function() { return isItemActive() }},
  *     ]
  *   });
  *
@@ -44,6 +45,9 @@ jQuery.fn.contextPopup = function(menuData) {
     if (settings.title) {
       $('<li class="' + settings.headerClass + '"></li>').text(settings.title).appendTo(menu);
     }
+      if (item.isActive && !item.isActive()) {
+          return;
+      }
     settings.items.forEach(function(item) {
       if (item) {
         var rowCode = '<li><a href="#" class="'+settings.linkClickerClass+'"><span class="itemTitle"></span></a></li>';
